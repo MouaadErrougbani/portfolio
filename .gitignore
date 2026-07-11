@@ -1,3 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# React
+dist/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Docker
+*.pid
+
+# PostgreSQL
+*.sql
+
+# Alembic cache
+alembic/__pycache__/
+
+# IDE
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
