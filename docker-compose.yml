@@ -10,16 +10,11 @@ services:
     env_file:
       - .env
 
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
     networks:
-      - ${PRIVATE_NETWORK}
+      - portfolio-private
 
 
   redis:
@@ -35,7 +30,7 @@ services:
       - redis_data:/data
 
     networks:
-      - ${PRIVATE_NETWORK}
+      - portfolio-private
 
 
   pgadmin:
@@ -46,15 +41,15 @@ services:
     restart: unless-stopped
 
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@mouaad-erg.com
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_USER}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
 
     volumes:
       - pgadmin_data:/var/lib/pgadmin
 
     networks:
-      - ${PRIVATE_NETWORK}
-      - ${PUBLIC_NETWORK}
+      - portfolio-private
+      - portfolio-public
 
 
   backend:
@@ -73,8 +68,8 @@ services:
       - redis
 
     networks:
-      - ${PRIVATE_NETWORK}
-      - ${PUBLIC_NETWORK}
+      - portfolio-private
+      - portfolio-public
 
 
   frontend:
@@ -86,7 +81,7 @@ services:
     restart: unless-stopped
 
     networks:
-      - ${PUBLIC_NETWORK}
+      - portfolio-private
 
 
 
@@ -99,8 +94,8 @@ volumes:
 
 networks:
 
-  ${PUBLIC_NETWORK}:
+  portfolio-public:
     external: true
 
-  ${PRIVATE_NETWORK}:
+  portfolio-private:
     external: true
