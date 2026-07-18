@@ -4,7 +4,7 @@ __pycache__/
 .venv/
 
 # Environment
-.env
+# .env
 
 # Logs
 *.log
@@ -183,7 +183,7 @@ activemq-data/
 *.sage.py
 
 # Environments
-.env
+# .env
 .envrc
 .venv
 env/
