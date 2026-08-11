@@ -8,8 +8,8 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationPinIcon from '@mui/icons-material/LocationPin';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-import getContacts from "../../../config/contacts";
 import styles from "./Contact.styles";
+import useContacts from "../../../hooks/useContacts";
 
 const icons = {
     "MailRoundedIcon" : <MailRoundedIcon />, 
@@ -21,7 +21,7 @@ const icons = {
 }
 
 function Left(){
-    const contacts = getContacts()
+    const contacts = useContacts()
     return(
         <Box sx={styles.left.box}>
             {

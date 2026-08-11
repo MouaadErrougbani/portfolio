@@ -5,8 +5,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import { IconButton, Stack } from "@mui/material";
 
-import getContacts from "../../../../config/contacts";
 import styles from "./Right.styles";
+import useContacts from "../../../../hooks/useContacts";
 
 const icons = {
     MailRoundedIcon: <MailRoundedIcon />,
@@ -28,7 +28,7 @@ function ContactItem({ contact }) {
 }
 
 function ContactItems() {
-    const contacts = getContacts().filter(
+    const contacts = useContacts().filter(
         (contact) => icons[contact.icon]
     );
 

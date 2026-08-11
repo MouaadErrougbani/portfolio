@@ -1,13 +1,16 @@
 import { Box } from "@mui/material";
-// import photo from "../../../../assets/images/photo.jpg";
 import styles from "./Right.styles";
 import ContactItems from "./ContactItems";
-import getMyInfos from "../../../../config/myInfos";
+import useMyInfos from "../../../../hooks/useMyInfos";
 
 
 
 function Right() {
-    const myInfos = getMyInfos()
+    const infos = useMyInfos()
+    const myInfos = infos[0];
+    if (!myInfos) {
+        return null;
+    }
     return (
         <Box sx={styles.right.box}>
             <Box

@@ -3,9 +3,9 @@ import { Box, Container, Typography, Stack, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
-import getContacts from "../../config/contacts"; 
 
 import styles from "./Footer.styles";
+import useContacts from "../../hooks/useContacts";
 
 
 const icons = {
@@ -17,7 +17,7 @@ const icons = {
 
 function ContactItem({contact}){
     const clickedHandler = (contact)=>{
-        window.open(contact.lien, "_blank", "noopener,noreferrer");
+        window.open(contact.link, "_blank", "noopener,noreferrer");
     }
 
     return (
@@ -29,7 +29,7 @@ function ContactItem({contact}){
 
 function Footer() {
     const year = new Date().getFullYear();
-    const contacts = getContacts()
+    const contacts = useContacts()
     return (
         <Box component="footer" sx={styles.footer}>
             <Container maxWidth="lg" sx={styles.container}>

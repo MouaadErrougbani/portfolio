@@ -7,7 +7,7 @@ function Section({label}){
     const id = label.toLowerCase()
     return (
         <Typography id={id} component="h2" variant="h3" sx={styles.section.typography}>
-            {t(label)}
+            {t(label.toLowerCase())}
         </Typography>
     )
 }

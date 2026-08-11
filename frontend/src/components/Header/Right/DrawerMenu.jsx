@@ -15,14 +15,14 @@ import Logo from "../Left/Logo";
 import LanguageSwitcher from "./Switcher/LanguageSwitcher";
 import ThemeSwitcher from "./Switcher/ThemeSwitcher";
 
-import getNavigation from "../../../config/navigation";
-
 import styles from "./DrawerMenu.styles";
+import useNavigations from "../../../hooks/useNavigations";
 
 function DrawerMenu() {
     const [open, setOpen] = useState(false);
 
-    const navigation = getNavigation();
+
+    const navigation = useNavigations()
 
     function capitalize(text) {
         return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
@@ -58,7 +58,7 @@ function DrawerMenu() {
 
                     <List sx={styles.list}>
                         {navigation
-                            .filter((item) => item.enable)
+                            .filter((item) => item.enabled)
                             .map((item) => (
                                 <ListItemButton
                                     key={item.id}

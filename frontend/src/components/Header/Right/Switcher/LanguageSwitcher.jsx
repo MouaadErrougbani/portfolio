@@ -1,13 +1,13 @@
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { useTranslation } from 'react-i18next';
-import getLanguages from "../../../../config/languages"
 import { useEffect } from "react";
+import useLanguages from "../../../../hooks/useLanguages";
 
 
 function LanguageSwitcher(){
     const {t, i18n} = useTranslation()
     
-    const languages = getLanguages()
+    const languages = useLanguages()
     
     function changeDirection(language) {
         document.documentElement.lang = language;
@@ -31,7 +31,7 @@ function LanguageSwitcher(){
             >
                 {
                     
-                    languages.map((item, index) => (<MenuItem key={index} value={item.code}>{item.lable}</MenuItem> ))
+                    languages.map((item, index) => (<MenuItem key={index} value={item.code}>{item.label}</MenuItem> ))
                 }
             </Select>
         </FormControl>
