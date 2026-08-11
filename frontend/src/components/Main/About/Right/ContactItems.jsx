@@ -17,7 +17,7 @@ const icons = {
 
 function ContactItem({ contact }) {
     const clickedHandler = () => {
-        window.open(contact.lien, "_blank", "noopener,noreferrer");
+        window.open(contact.link, "_blank", "noopener,noreferrer");
     };
 
     return (

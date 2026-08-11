@@ -32,8 +32,8 @@ function Left(){
                         <Box sx={styles.left.boxContact} key={contact.id}> 
                             {icons[contact.icon]}
                             {
-                                contact.lien ?   
-                                <Link href={contact.lien} 
+                                contact.link ?   
+                                <Link href={contact.link} 
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     underline="none"
